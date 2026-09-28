@@ -1,0 +1,61 @@
+// Microsoft Visual C++ compatible resource script (hand-written)
+// FTPClient.rc — giao dien cho chuong trinh FTP Client (De tai 402)
+
+#include "resource.h"
+#include <afxres.h>
+#include <commctrl.h>   // can cho cac style cua Common Controls: LVS_*, UDS_*, PBS_*...
+
+LANGUAGE LANG_ENGLISH, SUBLANG_DEFAULT
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+// Dialog chinh
+
+IDD_FTPCLIENT_DIALOG DIALOGEX 0, 0, 480, 310
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
+CAPTION "FTP Client - De tai 402"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "May chu:",IDC_STATIC,7,9,32,8
+    EDITTEXT        IDC_EDIT_HOST,41,7,72,14,ES_AUTOHSCROLL
+    LTEXT           "Port:",IDC_STATIC,118,9,18,8
+    EDITTEXT        IDC_EDIT_PORT,138,7,26,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "User:",IDC_STATIC,169,9,20,8
+    EDITTEXT        IDC_EDIT_USER,191,7,58,14,ES_AUTOHSCROLL
+    LTEXT           "Mat khau:",IDC_STATIC,253,9,34,8
+    EDITTEXT        IDC_EDIT_PASS,289,7,58,14,ES_AUTOHSCROLL | ES_PASSWORD
+    DEFPUSHBUTTON   "Ket noi",IDC_BTN_CONNECT,354,6,60,16
+
+    LTEXT           "/",IDC_STATIC_PATH,7,28,344,8
+    PUSHBUTTON      "Len",IDC_BTN_UP,354,25,30,14
+    PUSHBUTTON      "Lam moi",IDC_BTN_REFRESH,387,25,44,14
+
+    CONTROL         "",IDC_LIST_REMOTE,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,44,466,140
+
+    PUSHBUTTON      "Tai xuong",IDC_BTN_DOWNLOAD,7,190,58,16
+    PUSHBUTTON      "Tai len",IDC_BTN_UPLOAD,68,190,58,16
+    PUSHBUTTON      "Xoa",IDC_BTN_DELETE,129,190,44,16
+    PUSHBUTTON      "Doi ten",IDC_BTN_RENAME,176,190,50,16
+    PUSHBUTTON      "Thu muc moi",IDC_BTN_MKDIR,229,190,64,16
+    LTEXT           "So k.noi song song:",IDC_STATIC_THREADS,299,192,68,8
+    EDITTEXT        IDC_EDIT_THREADS,404,190,22,14,ES_AUTOHSCROLL | ES_NUMBER | ES_CENTER
+    CONTROL         "",IDC_SPIN_THREADS,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,428,190,10,14
+
+    CONTROL         "",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,7,210,466,12
+
+    EDITTEXT        IDC_EDIT_LOG,7,226,466,72,ES_MULTILINE | ES_READONLY | ES_AUTOVSCROLL | WS_VSCROLL | WS_BORDER
+END
+
+/////////////////////////////////////////////////////////////////////////////
+// Dialog nhap lieu dung chung (Doi ten / Tao thu muc moi)
+
+IDD_INPUT_DIALOG DIALOGEX 0, 0, 200, 72
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Nhap gia tri"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Nhap ten:",IDC_STATIC_PROMPT,7,7,186,10
+    EDITTEXT        IDC_EDIT_INPUT,7,20,186,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,57,46,50,14
+    PUSHBUTTON      "Huy",IDCANCEL,113,46,50,14
+END
